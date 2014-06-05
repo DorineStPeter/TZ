@@ -9,8 +9,8 @@ install: tz_ui-fr.mo
 tz_ui.pot: tz_ui
 	xgettext -o tz_ui.pot -L Shell tz_ui
 
-tz_ui-ru.mo: tz_ui-ru.po
-	msgfmt -o tz_ui-ru.mo tz_ui-ru.po
+tz_ui-fr.mo: tz_ui-fr.po
+	msgfmt -o tz_ui-fr.mo tz_ui-fr.po
 
 clone:
 	https://github.com/DorineStPeter/TZ.git
