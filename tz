@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FILE=/tmp/calc-$$
+FILE=/tmp/tz-$$
 
 read EXPR1
 cont=`echo "$EXPR1" | awk -F "-" '{print $1}' `
