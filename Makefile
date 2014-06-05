@@ -2,7 +2,7 @@ install: tz_ui-fr.mo
 	install tz tz_ui /usr/local/bin
 	which gdialog >/dev/null 2>&1 || install gdialog /usr/local/bin
 	grep -q "`cat tz.services`" /etc/services || cat tz.services >> /etc/services
-	install tz.xinetd /etc/xinetd.d/calc
+	install tz.xinetd /etc/xinetd.d/tz
 	ln -sf /usr/local/bin/tz_ui /usr/local/bin/ntz_ui
 	install tz_ui-fr.mo /usr/share/locale/fr/LC_MESSAGES/tz_ui.mo
 
