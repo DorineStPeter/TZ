@@ -10,14 +10,50 @@ ERROR=/tmp/tz-err-$$
 
 GETTEXT="gettext -d tz_ui"
 
+if [ -r ~/.tz.conf ]
+then
+	. ~/.tz.conf
+elif [ -r /etc/tz.conf ]
+then
+	. /etc/tz.conf
+fi
 
 which gdialog 2> /dev/null && DIALOG=gdialog || DIALOG=gdialog
+
+help () {
+        echo "Usage: $0 [ host [port] | --help ]"
+}
 
 
 end () {
 	rm -f $FILE1 $FILE2 $ERROR
 	exit
 }
+
+if [ $# -eq 1 ]
+then
+        if [ $1 -eq '--help' ]
+        then
+                help
+                exit -1
+        else
+                HOST=$1
+        fi
+elif [ $# -eq 2 ]
+then
+        PORT=$2
+fi
+
+if [ $# -ge 1 -o `basename $0` = 'ntz_ui' ]
+then
+	if [ $HOST -a $PORT ]
+	then
+	        TZ="nc $HOST $PORT"
+	else
+		echo "You must set HOST and PORT"
+		exit -2
+	fi
+fi
 
 
 while true
