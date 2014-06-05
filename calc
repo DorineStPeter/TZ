@@ -1,0 +1,13 @@
+#!/bin/sh
+
+FILE=/tmp/calc-$$
+
+read EXPR1
+cont=`echo "$EXPR1" | awk -F "-" '{print $1}' `
+city=`echo "$EXPR1" | awk -F "-" '{print $2}' `
+echo TZ=":$cont"/"$city" date > $FILE
+
+sh $FILE
+EXIT_STATUS=$?
+rm -f $FILE
+exit $EXIT_STATUS
