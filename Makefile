@@ -13,7 +13,7 @@ tz_ui-ru.mo: tz_ui-ru.po
 	msgfmt -o tz_ui-ru.mo tz_ui-ru.po
 
 clone:
-	git clone https://github.com/itmo-infocom/calc_examples.git
+	https://github.com/DorineStPeter/TZ.git
 
 download:
 	git pull
